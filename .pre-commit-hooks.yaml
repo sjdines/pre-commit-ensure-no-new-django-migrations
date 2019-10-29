@@ -2,7 +2,7 @@
     name: Ensure no new Django migrations
     description: This will check if any additional Django migrations are required to be created.
     entry: check-django-migrations
-    language: script
+    language: python
     types: [file, text, non-executable]
     always_run: true
     args: [.]
