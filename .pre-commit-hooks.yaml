@@ -5,3 +5,4 @@
     language: script
     types: [file, text, non-executable]
     always_run: true
+    args: [.]
