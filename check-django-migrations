@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+MAKE_MIGRATION_OUT=$(./manage.py makemigrations --dry-run)
+
+if [[ "$MAKE_MIGRATION_OUT" != "No changes detected" ]]; then
+  echo "Migration changes detected."
+  echo "$MAKE_MIGRATION_OUT"
+  exit 1
+fi

@@ -1,0 +1,7 @@
+-   id: ensure-no-new-django-migrations
+    name: Ensure no new Django migrations
+    description: This will check if any additional Django migrations are required to be created.
+    entry: check-django-migrations
+    language: script
+    types: [file, text, non-executable]
+    always_run: true
