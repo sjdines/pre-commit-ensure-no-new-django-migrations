@@ -7,7 +7,7 @@ VIRTUAL_ENV=$2
 
 MAKE_MIGRATION_OUT=$(
   cd "$MANAGE_DIR" &&
-  source "$VIRTUAL_ENV"/bin/activate &&
+  source "$HOME/$VIRTUAL_ENV"/bin/activate &&
   ./manage.py makemigrations --dry-run
 )
 
