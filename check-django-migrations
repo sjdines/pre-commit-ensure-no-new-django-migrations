@@ -3,9 +3,10 @@
 set -e
 
 MANAGE_DIR=$1
-VIRTUAL_ENV=$2
+echo "$CHECK_MIGRATION_VIRTUAL_ENV"
 
-if [ -z "$var" ]
+
+if [ -z "$CHECK_MIGRATION_VIRTUAL_ENV" ]
 then
   MAKE_MIGRATION_OUT=$(
     cd "$MANAGE_DIR" &&
@@ -14,7 +15,7 @@ then
 else
   MAKE_MIGRATION_OUT=$(
     cd "$MANAGE_DIR" &&
-    source "$HOME/$VIRTUAL_ENV"/bin/activate &&
+    source "$HOME/$CHECK_MIGRATION_VIRTUAL_ENV"/bin/activate &&
     ./manage.py makemigrations --dry-run
   )
 fi
