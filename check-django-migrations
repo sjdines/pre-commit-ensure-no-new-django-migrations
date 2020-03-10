@@ -3,8 +3,6 @@
 set -e
 
 MANAGE_DIR=$1
-echo "$CHECK_MIGRATION_VIRTUAL_ENV"
-
 
 if [ -z "$CHECK_MIGRATION_VIRTUAL_ENV" ]
 then
