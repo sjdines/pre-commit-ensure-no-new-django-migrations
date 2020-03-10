@@ -5,4 +5,4 @@
     language: script
     types: [file, text, non-executable]
     always_run: true
-    args: [., .virtualenvs/ensure-no-new-django-migrations]
+    args: [.]

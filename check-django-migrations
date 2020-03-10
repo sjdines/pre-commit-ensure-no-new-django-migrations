@@ -3,13 +3,20 @@
 set -e
 
 MANAGE_DIR=$1
-VIRTUAL_ENV=$2
 
-MAKE_MIGRATION_OUT=$(
-  cd "$MANAGE_DIR" &&
-  source "$HOME/$VIRTUAL_ENV"/bin/activate &&
-  ./manage.py makemigrations --dry-run
-)
+if [ -z "$CHECK_MIGRATION_VIRTUAL_ENV" ]
+then
+  MAKE_MIGRATION_OUT=$(
+    cd "$MANAGE_DIR" &&
+    ./manage.py makemigrations --dry-run
+  )
+else
+  MAKE_MIGRATION_OUT=$(
+    cd "$MANAGE_DIR" &&
+    source "$HOME/$CHECK_MIGRATION_VIRTUAL_ENV"/bin/activate &&
+    ./manage.py makemigrations --dry-run
+  )
+fi
 
 if [[ "$MAKE_MIGRATION_OUT" != "No changes detected" ]]; then
   echo "Migration changes detected."
